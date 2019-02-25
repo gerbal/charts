@@ -46,7 +46,7 @@ spec:
         - name: DCS_ENABLE_KUBERNETES_API
           value: "true"
         - name: KUBERNETES_LABELS
-          value: {{ (printf "{ \"app\": \"%s\", \"release\": \"%s\" }" (include "patroni.name" .) .Release.Name) | quote }}
+          value: {{ (printf "{ \"app\": \"%s\", \"release\": \"%s\" }" (include "patroni.fullname" .) .Release.Name) | quote }}
         - name: KUBERNETES_SCOPE_LABEL
           value: "app"
         {{- end }}
